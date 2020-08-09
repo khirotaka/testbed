@@ -1,5 +1,5 @@
 # Testbed
-Testbet for building a Python module in Rust.
+Testbet for writing a Python module with Rust.
 
 
 ## Problem Establishment
