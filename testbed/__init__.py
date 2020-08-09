@@ -1,1 +1,0 @@
-from .testbed import sum_as_string
