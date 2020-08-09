@@ -28,6 +28,8 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 
+.idea/*
+
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
@@ -253,3 +255,40 @@ Cargo.lock
 **/*.rs.bk
 
 # End of https://www.toptal.com/developers/gitignore/api/rust,python,pycharm
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+
+
+#Added by cargo
+#
+#already existing elements were commented out
+
+/target
+#Cargo.lock
