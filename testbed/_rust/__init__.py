@@ -1,1 +1,1 @@
-from ..testbed import add_double, sum_as_string, show_items1d
+from ..testbed import add_double, sum_as_string, show_items1d, sliding_window
