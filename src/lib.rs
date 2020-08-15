@@ -1,3 +1,4 @@
+extern crate pyo3;
 extern crate ndarray;
 
 use pyo3::prelude::*;
@@ -5,6 +6,35 @@ use pyo3::wrap_pyfunction;
 use numpy::{PyReadonlyArray1, PyReadonlyArray2, PyArray3, IntoPyArray};
 use ndarray::{Axis, Slice, Array, Array3};
 
+
+#[pyclass]
+struct Person {
+    age: i32,
+    name: String
+}
+
+#[pymethods]
+impl Person {
+    #[new]
+    fn new(age: i32, name: String) -> Self {
+        Person{ age, name }
+    }
+
+    #[getter]
+    fn age(&self) -> PyResult<i32> {
+        Ok(self.age)
+    }
+
+    #[getter]
+    fn name(&self) -> PyResult<&String> {
+        Ok(&self.name)
+    }
+
+    #[call]
+    fn __call__(&self, greet: String) -> PyResult<String> {
+        Ok(format!("{}! My name is {}. I'm {}.", greet, &self.name, &self.age))
+    }
+}
 
 #[pyfunction]
 fn sum_as_string(a: usize, b: usize) -> PyResult<String> {
@@ -72,6 +102,7 @@ fn testbed(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_wrapped(wrap_pyfunction!(sum_as_string))?;
     m.add_wrapped(wrap_pyfunction!(sliding_window))?;
     m.add_wrapped(wrap_pyfunction!(foo))?;
+    m.add_class::<Person>()?;
 
     Ok(())
 }
