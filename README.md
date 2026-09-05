@@ -81,3 +81,5 @@ from ..testbed import sum_as_string
 
 
 test
+
+動作確認用
